@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Random Qiita</title>
+</head>
+<body>
+  <h1>Random Qiita</h1>
+  <p>
+    Qiitaの最新の10000件の記事からランダムでURLを表示するよ!
+    👉<a href="https://github.com/redshoga/random-qiita-api">GitHub</a>
+  </p>
+  <ul id="link-container"></ul>
+  <button onclick="addUrl()">ランダムURLを取得</button>
+
+  <script>
+    function addUrl() {
+      const linkContainer = document.getElementById("link-container");
+      const request = new XMLHttpRequest();
+      request.open("get", "https://us-central1-random-qiita-api-be836.cloudfunctions.net/get", true);
+      request.onload = (event) => {
+        const res = JSON.parse(request.responseText);
+        const url = res.url;
+
+        const aElement = document.createElement('a');
+        aElement.href = url;
+        aElement.target = "_blank";
+        aElement.innerText = url;
+        const liElement = document.createElement('li');
+        liElement.appendChild(aElement);
+        linkContainer.appendChild(liElement);
+      };
+      request.send(null);
+    }
+  </script>
+</body>
+</html>
