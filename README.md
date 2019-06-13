@@ -25,7 +25,7 @@ javascript:r=new XMLHttpRequest();r.open("get","https://us-central1-random-qiita
 1. 最新のQiitaの記事のURLを集めたJSONをセットする
 
 ```bash
-cd set-qiita-urls
+cd src/set-qiita-urls
 npm install
 cd ..
 
@@ -37,4 +37,14 @@ node set-qiita-urls
 
 ```bash
 firebase deploy
+```
+
+# Dockerを用いたデプロイ
+
+```
+docker build -t redshoga/random-qiita-api .
+```
+
+```
+docker run -it --env TOKEN=... --env FIREBASE_TOKEN=... redshoga/random-qiita-api
 ```
