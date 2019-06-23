@@ -5,8 +5,8 @@ const path = require('path');
 const TOKEN = process.env.TOKEN;
 
 const OUTFILE_NAME = path.resolve(__dirname, "../functions/url.json");
-const MAX_PAGE = 10;
-const WAIT_SEC = 1000;
+const MAX_PAGE = 100;
+const WAIT_SEC = 5000;
 const PER_PAGE = 100;
 
 const delay = async (ms) => {
@@ -37,7 +37,6 @@ const getLatestQiitaUrls = async () => {
     Array.prototype.push.apply(allUrls, urls);
     await delay(WAIT_SEC);
   }
-  console.log(allUrls)
   return allUrls;
 }
 
