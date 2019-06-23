@@ -23,11 +23,12 @@
       request.onload = (event) => {
         const res = JSON.parse(request.responseText);
         const url = res.url;
+        const title = res.title;
 
         const aElement = document.createElement('a');
         aElement.href = url;
         aElement.target = "_blank";
-        aElement.innerText = url;
+        aElement.innerText = title;
         const liElement = document.createElement('li');
         liElement.appendChild(aElement);
         linkContainer.appendChild(liElement);
