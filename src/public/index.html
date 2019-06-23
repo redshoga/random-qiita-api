@@ -12,14 +12,14 @@
     Qiitaの最新の10000件の記事からランダムでURLを表示するよ!
     👉<a href="https://github.com/redshoga/random-qiita-api">GitHub</a>
   </p>
-  <ul id="link-container"></ul>
   <button onclick="addUrl()">ランダムURLを取得</button>
+  <ul id="link-container"></ul>
 
   <script>
     function addUrl() {
       const linkContainer = document.getElementById("link-container");
       const request = new XMLHttpRequest();
-      request.open("get", "https://us-central1-random-qiita-api-be836.cloudfunctions.net/get", true);
+      request.open("get", "https://us-central1-random-qiita-api-be836.cloudfunctions.net/get", false);
       request.onload = (event) => {
         const res = JSON.parse(request.responseText);
         const url = res.url;
