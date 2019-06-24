@@ -17,7 +17,7 @@ https://random-qiita-api-be836.firebaseapp.com/
 以下をブックマークのURLとして設定すれば、ブックマークをクリックするとランダムなQiitaの記事にとべる
 
 ```javascript
-javascript:r=new XMLHttpRequest();r.open("get","https://us-central1-random-qiita-api-be836.cloudfunctions.net/get",!0);r.onload=()=>location.href=JSON.parse(r.responseText).url;r.send()
+javascript:r=new XMLHttpRequest();r.open("get","https://us-central1-random-qiita-api-be836.cloudfunctions.net/get",!0);r.onload=()=>location.href=JSON.parse(r.responseText).url;r.send();
 ```
 
 # デプロイ方法
