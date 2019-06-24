@@ -33,7 +33,6 @@ const getLatestQiitaUrls = async () => {
     const urls = response.data.map((article) => {
       return {'title': article.title, 'url': article.url};
     })
-    console.log(urls)
     Array.prototype.push.apply(allUrls, urls);
     await delay(WAIT_SEC);
   }
